@@ -41,5 +41,7 @@ public class Ejercicio {
         this.grupo_muscular = "Cuerpo completo";
     }
     
+    // 1) progreso de peso, 2) fallo muscular o cerca del fallo muscular, 3) Cambiar rep y ser, 4) obtener resumen , 5) obtener el nombre;
+       
     
 }
