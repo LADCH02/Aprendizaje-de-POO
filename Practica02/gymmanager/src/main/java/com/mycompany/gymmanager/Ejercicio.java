@@ -21,14 +21,25 @@ public class Ejercicio {
         this.nombre = nombre;
         this.grupo_muscular = grupo_muscular;
         this.series = series;
-        this.repeticiones = repeteciones;
+        this.repeticiones = repeticiones;
         this.pesoKg = pesokg;
         this.rpe = rpe;
     }
     
+    public Ejercicio(String nombre, String grupo_muscular){
+        this.nombre = nombre;
+        this.grupo_muscular = grupo_muscular;
+        this.series = 3;
+        this.repeticiones = 10;
+        this.pesoKg = 0.0;
+        this.rpe = 0;
+    }
     
     
-    
+       public Ejercicio(){
+        this.nombre = "Ejercicio generico";
+        this.grupo_muscular = "Cuerpo completo";
+    }
     
     
 }
