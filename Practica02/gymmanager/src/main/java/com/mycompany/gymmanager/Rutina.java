@@ -13,7 +13,7 @@ public class Rutina {
     public String nombreRutina;
     public ArrayList<Ejercicio> listaEjercicios;
     
-    public Rutina(String nombreRutina, Ejercicio e){
+    public Rutina(String nombreRutina){
         this.nombreRutina = nombreRutina;
         this.listaEjercicios = new ArrayList<>();
     }
