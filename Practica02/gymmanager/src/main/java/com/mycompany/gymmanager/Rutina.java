@@ -25,7 +25,7 @@ public class Rutina {
     public void buscarEjercicio(String busqueda){
         for(Ejercicio e: listaEjercicios)
         {
-            if(e.nombre.equals(busqueda))
+            if(e.getNombre().equals(busqueda))
                 System.out.println("El ejercicio fue encontrado " + e.resumen());
             else
                 System.out.println("El ejericio no fue encontrado, puede agregarlo con la funcion agregar");
