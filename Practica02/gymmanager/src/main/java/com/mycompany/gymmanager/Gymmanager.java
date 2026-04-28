@@ -11,8 +11,30 @@ package com.mycompany.gymmanager;
 public class Gymmanager {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        
+        Rutina Entrenamiento = new Rutina("Dia de pierna");
+        
+        Ejercicio e1 = new Ejercicio("Sentadilla","Pierna completa",4,10,100.0,7);
+        Ejercicio e2 = new Ejercicio("Peso muerto", "Pierna trasera",4,10,70.0,8);
+        Ejercicio e3 = new Ejercicio("Sentadilla isometrica", "Tendones",4,1,20.0,8);
+        Ejercicio e4 = new Ejercicio("Extension de cuadricep", "Cuadricep",4,10,80.0,7);
+        Ejercicio e5 = new Ejercicio("Curl femoral", "Femorales",4,10,70.0,7);
         
         
+        e1.fallo_muscular(8);
+        e2.progreso_peso(20);
+        
+        
+        Entrenamiento.agregarEjercicio(e1);
+        Entrenamiento.agregarEjercicio(e2);
+        Entrenamiento.agregarEjercicio(e3);
+        Entrenamiento.agregarEjercicio(e4);
+        Entrenamiento.agregarEjercicio(e5);
+        
+        System.out.println("Buscando un ejercicio en particular");
+        Entrenamiento.buscarEjercicio("Sentadilla");
+        
+        
+        Entrenamiento.mostrar_rutina();
     }
 }
