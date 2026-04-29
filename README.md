@@ -15,3 +15,10 @@ obteneter informacion de entrada.
 
 Práctica 2 — Clases y Objetos en Java
 En este proyecto el dominio que escogi fue Ejercicio debido que me parece una forma muy buena de abordar el tema, ejercicio tiene muchas cosas faciles de abtraer para poder comprender mejor el concepto de clase y objetos. Tambien es un tema que me interesa mucho en particular el gym.
+
+
+
+Práctica 3 — Encapsulamiento y Modificadores de Acceso
+Bueno esta practica agregamos 2 condiciones muy importantes a mi parecer.
+1) peso < 0 y peso > 300 debido a que no se puede realizar un ejercicio con peso 0 y al mismo tiempo en este gym no contamos con pesos mayores a 300
+2)  Nombre mayor a 2 letras debido a que un nombre de 3 letras es muy pequeño y puede llegar a ser fradualento en mexico.
