@@ -9,7 +9,7 @@ package gymmanager3;
  * @author FCFM
  */
 public class Maquina extends EjercicioFuerza{
-    int numero;
+    private int numero;
     public Maquina(String nombre, String grupo, int s, int r, double p, int rpe, int numero){
         super(nombre,grupo,s,r,p,rpe);
         this.numero = numero;
