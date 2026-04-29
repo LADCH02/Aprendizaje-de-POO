@@ -38,6 +38,12 @@ public abstract class Ejercicio {
     
     public abstract void ejecutar();
     
+    
+    public void descansar() {
+        System.out.println("Descansando 90 segundos entre series de " + nombre);
+    }
+    
+    
     public void setNombre(String nombre){
         if(nombre != null && nombre.trim().length() >= 3)
             this.nombre = nombre;
