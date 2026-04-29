@@ -38,6 +38,19 @@ public class Gymmanager2 {
         
         
         Entrenamiento.mostrar_rutina();
+        
+        
+        // Practica 3
+        
+        System.out.println("--- Prueba de nombre---");
+        e1.setNombre("X");
+        
+        System.out.println("----Prueba de peso----");
+        e1.setPesoKg(-1.0);
+        
+        System.out.println("----Prueba de composicion----");
+        EjercicioPersonalizado Rutina1 = new EjercicioPersonalizado("El objetivo de este ejercicio fortalecer el rango de movimiento, tambien la fuerza de empuje de las piernas.", 20,e1);
+        Rutina1.detalles();
     }
 }
     
