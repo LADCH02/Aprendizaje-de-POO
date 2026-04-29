@@ -17,16 +17,17 @@ public class Gymmanager3 {
         Rutina Entrenamiento = new Rutina("Dia de pierna");
         
         
+        PesoLibre p1 = new PesoLibre("Press Militar", "Hombro", 4, 10, 40.0, 8);
+        Maquina m1 = new Maquina("Extensiones", "Cuadriceps", 3, 15, 60.0, 9, 12);
+        Cardio c1 = new Cardio("Pista","Cardiovascular", 2,3,5.0);
         
         
-        System.out.println("Buscando un ejercicio en particular");
-        Entrenamiento.buscarEjercicio("Sentadilla");
-        
+        Entrenamiento.agregarEjercicio(p1);
+        Entrenamiento.agregarEjercicio(m1);
+        Entrenamiento.agregarEjercicio(c1);
         
         Entrenamiento.mostrar_rutina();
         
-        
-        // Practica 3
         
         
     }  
