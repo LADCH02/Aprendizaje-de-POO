@@ -14,6 +14,11 @@ public class PesoLibre extends EjercicioFuerza{
         super(nombre,grupo,s,r,p,rpe);
     }
     
+    public void recomendacion(){
+        System.out.println("Se recomienda que en ejercicios libres se antepone el peso maximo con buena ejecucion y un numero de repetciones entre 1-6 de 4 series");
+    }
+    
+   
     @Override
     public void ejecutar() {
         System.out.println("[PESO LIBRE] Estabilizando y levantando " + pesoKg + "kg en " + nombre);
@@ -23,4 +28,5 @@ public class PesoLibre extends EjercicioFuerza{
     public void descansar() {
         System.out.println("Dejando las pesas en el piso. Descanso activo.");
     }
+    
 }

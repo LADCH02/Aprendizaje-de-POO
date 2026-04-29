@@ -15,8 +15,19 @@ public class Maquina extends EjercicioFuerza{
         this.numero = numero;
     }
     
+    public void recomendacion(){
+        System.out.println("Se recomienda que en ejercicios asistidos el numero de repeticones aumente.");
+    }
+    
+    
     @Override
     public void ejecutar() {
         System.out.println("[MAQUINA #" + numero+ "] para el ejercicio " + nombre + " intrucciones en la maquina");
+    }
+    
+    
+    @Override
+    public void descansar() {
+        System.out.println("Descansa bajando de la maquina asistida.");
     }
 }
