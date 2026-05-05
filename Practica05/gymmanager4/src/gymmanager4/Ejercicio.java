@@ -8,7 +8,7 @@ package gymmanager4;
  *
  * @author FCFM
  */
-public abstract class Ejercicio {
+public abstract class Ejercicio implements EvaluacionFisica{
     protected String nombre;
     protected String grupo_muscular;
     protected int series;
