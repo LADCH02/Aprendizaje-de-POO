@@ -20,7 +20,22 @@ public class Maquina extends EjercicioFuerza{
         System.out.println("Se recomienda que en ejercicios asistidos el numero de repeticones aumente.");
     }
     
-       @Override
+    public void configurarMaquina(int nivelAsiento) {
+        System.out.println("Ajustando el asiento de la máquina al nivel " + nivelAsiento);
+    }
+
+   
+    public void configurarMaquina(int nivelAsiento, double pesoExtra) {
+        System.out.println("Asiento en nivel " + nivelAsiento + " y pin de peso ajustado con " + pesoExtra + " kg extra.");
+        this.pesoKg += pesoExtra;
+    }
+
+    
+    public void configurarMaquina(String accesorio) {
+        System.out.println("Instalando el accesorio: " + accesorio + " en la máquina #" + numero);
+    }
+    
+    @Override
     public double calcularCalorias() {
         return (series * repeticiones) + (pesoKg * 0.5);
     }

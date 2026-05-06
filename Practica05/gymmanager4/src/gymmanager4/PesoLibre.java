@@ -18,6 +18,25 @@ public class PesoLibre extends EjercicioFuerza{
         System.out.println("Se recomienda que en ejercicios libres se antepone el peso maximo con buena ejecucion y un numero de repetciones entre 1-6 de 4 series");
     }
     
+    public void prepararLevantamiento(boolean requiereSpotter) {
+        if (requiereSpotter) {
+            System.out.println("Solicitando a un compañero para cuidar el levantamiento de " + nombre);
+        } else {
+            System.out.println("Levantamiento de " + nombre + " en solitario, asegurando ganchos.");
+        }
+    }
+
+    
+    public void prepararLevantamiento(String tipoAgarre) {
+        System.out.println("Preparando el ejercicio " + nombre + " con un agarre tipo: " + tipoAgarre);
+    }
+
+   
+    public void prepararLevantamiento(boolean usarCinturon, int discosPorLado) {
+        String cinturon = usarCinturon ? "con cinturón lumbar" : "sin cinturón";
+        System.out.println("Preparando levantamiento " + cinturon + " y colocando " + discosPorLado + " discos por lado.");
+    }
+    
     @Override
     public double calcularCalorias() {
         return (series * repeticiones) + (pesoKg * 0.5);
