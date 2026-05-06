@@ -39,7 +39,20 @@ Maquina: Añade numeroMaquina y ejecución guiada.
 
 Cardio: Hereda de Ejercicio, enfocada en distanciaKm.
 
-3. Problema de Diseño Identificado
-Situación: Inicialmente, el atributo pesoKg estaba en la clase padre Ejercicio.
-Conflicto: Al crear Cardio, esta heredaba un atributo de peso innecesario, generando objetos con "datos basura".
-Solución: Se aplicó una refactorización creando la clase intermedia EjercicioFuerza. Así, Cardio solo hereda lo esencial, manteniendo la integridad del diseño y evitando la "herencia forzada".
+
+Practica 5 -Polimorfismo
+
+Patrón Template Method
+En la clase abstracta Ejercicio, implementé el método concreto generarReporteEntrenamiento(). Este método es una implementación del patrón de diseño Template Method.
+
+¿Qué hace este método?
+Define el "esqueleto" o la estructura fija de cómo se debe mostrar la información de cualquier entrenamiento en la consola. Sigue un orden estricto de pasos:
+
+Paso Concreto: Llama a resumen() (definido en la clase padre) para mostrar los datos generales.
+Paso Abstracto: Llama a ejecutar(). Aquí es donde ocurre el polimorfismo, ya que la acción cambia dependiendo de si es un ejercicio de Cardio, Máquina o Peso Libre.
+Paso de Interfaz: Llama a calcularCalorias(), forzando a que se muestre el cálculo específico de energía.
+Paso Concreto: Llama a descansar() para cerrar el reporte con la técnica de recuperación.
+
+¿Por qué lo diseñé así?
+Lo diseñé con el modificador final para asegurar que el orden de los pasos sea inalterable. Aunque las clases hijas deciden "cómo" se ejecuta el ejercicio o "cuántas" calorías se queman, la clase padre decide "cuándo" y "en qué orden" se presenta esa información al usuario.
+
