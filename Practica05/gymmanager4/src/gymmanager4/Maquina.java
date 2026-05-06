@@ -20,6 +20,21 @@ public class Maquina extends EjercicioFuerza{
         System.out.println("Se recomienda que en ejercicios asistidos el numero de repeticones aumente.");
     }
     
+       @Override
+    public double calcularCalorias() {
+        return (series * repeticiones) + (pesoKg * 0.5);
+    }
+
+    @Override
+    public String evaluarIntensidad() {
+        if (pesoKg > 80.0 || rpe >= 8) {
+            return "Alta";
+        } else if (pesoKg > 50.0) {
+            return "Media";
+        } else {
+            return "Baja";
+        }
+    }
     
     @Override
     public void ejecutar() {

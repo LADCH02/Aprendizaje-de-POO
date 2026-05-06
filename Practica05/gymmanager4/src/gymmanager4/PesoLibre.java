@@ -18,6 +18,21 @@ public class PesoLibre extends EjercicioFuerza{
         System.out.println("Se recomienda que en ejercicios libres se antepone el peso maximo con buena ejecucion y un numero de repetciones entre 1-6 de 4 series");
     }
     
+    @Override
+    public double calcularCalorias() {
+        return (series * repeticiones) + (pesoKg * 0.5);
+    }
+
+    @Override
+    public String evaluarIntensidad() {
+        if (pesoKg > 50.0 || rpe >= 8) {
+            return "Alta";
+        } else if (pesoKg > 20.0) {
+            return "Media";
+        } else {
+            return "Baja";
+        }
+    }
    
     @Override
     public void ejecutar() {
