@@ -27,6 +27,22 @@ public class Gymmanager4 {
         Entrenamiento.agregarEjercicio(c1);
         
         Entrenamiento.mostrar_rutina();
+        
+        
+        Ejercicio[] arrayEjercicios = new Ejercicio[3];
+        arrayEjercicios[0] = p1;
+        arrayEjercicios[1] = m1;
+        arrayEjercicios[2] = c1;
+
+       
+        for (Ejercicio ej : arrayEjercicios) {
+            ej.generarReporteEntrenamiento();             
+            if (ej instanceof Maquina) {
+                Maquina maquinaEspecifica = (Maquina) ej; 
+                System.out.println(">>> ¡Aviso! Este ejercicio es en máquina. Recuerda limpiar el asiento.");
+                maquinaEspecifica.recomendacion(); // Usando un método específico de la clase hija
+            }
+        }
     }
     
 }
