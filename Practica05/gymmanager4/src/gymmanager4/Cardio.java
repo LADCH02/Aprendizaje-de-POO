@@ -21,6 +21,19 @@ public class Cardio extends Ejercicio{
         System.out.println("Se recomienda que la persona antes de empezar realice un calentamiento dinamico y al final se estire");
     }
     
+    public void ajustarRutina(double distanciaExtra) {
+        this.distancia += distanciaExtra;
+    }
+    
+    
+    public void ajustarRutina(double distanciaExtra, int seriesExtra) {
+        this.distancia += distanciaExtra;
+        this.series += seriesExtra;
+    }
+    
+    public void ajustarRutina(String nuevaRecomendacion) {
+        System.out.println("Nota extra para cardio: " + nuevaRecomendacion);
+    }
     @Override
     public void ejecutar() {
         System.out.println("Corriendo/Pedaleando " + distancia+ "km de " + nombre);
