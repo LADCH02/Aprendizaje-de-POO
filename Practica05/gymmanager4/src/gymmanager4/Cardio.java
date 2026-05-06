@@ -34,6 +34,21 @@ public class Cardio extends Ejercicio{
     public void ajustarRutina(String nuevaRecomendacion) {
         System.out.println("Nota extra para cardio: " + nuevaRecomendacion);
     }
+    
+    @Override
+    public double calcularCalorias() {
+        return distancia * 60.0; 
+    }
+
+    @Override
+    public String evaluarIntensidad() {
+        if (distancia > 5.0) {
+            return "Alta";
+        } else {
+            return "Moderada";
+        }
+    }
+    
     @Override
     public void ejecutar() {
         System.out.println("Corriendo/Pedaleando " + distancia+ "km de " + nombre);
