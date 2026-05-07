@@ -12,16 +12,22 @@ public class Gymmanager5 {
 
     public static void main(String[] args) {
         Rutina Entrenamiento = new Rutina("Dia de pierna");
-        
+        Rutina hybrid = new Rutina("Hybrido");
         
         PesoLibre p1 = new PesoLibre("Press Militar", "Hombro", 4, 10, 40.0, 8);
         Maquina m1 = new Maquina("Extensiones", "Cuadriceps", 3, 15, 60.0, 9, 12);
         Cardio c1 = new Cardio("Pista","Cardiovascular", 2,3,5.0);
+        Crossfit Cros = new Crossfit("Murph WOD", "Cuerpo Completo", 1, 1, 4);
         
         
         Entrenamiento.agregarEjercicio(p1);
         Entrenamiento.agregarEjercicio(m1);
         Entrenamiento.agregarEjercicio(c1);
+        
+        hybrid.agregarEjercicio(Cros);
+        hybrid.agregarEjercicio(m1);
+        hybrid.agregarEjercicio(p1);
+        
         
         Entrenamiento.mostrar_rutina();
         
@@ -40,5 +46,8 @@ public class Gymmanager5 {
                 maquinaEspecifica.recomendacion(); // Usando un método específico de la clase hija
             }
         }
+        
+        hybrid.IniciarEntrenamiento();
+        
     }
 }
