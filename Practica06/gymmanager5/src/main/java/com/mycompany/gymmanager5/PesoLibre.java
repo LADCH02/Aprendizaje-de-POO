@@ -8,7 +8,7 @@ package com.mycompany.gymmanager5;
  *
  * @author Lic Carmen
  */
-public class PesoLibre extends EjercicioFuerza {
+public class PesoLibre extends EjercicioFuerza implements Equipable {
     public PesoLibre(String nombre, String grupo, int s, int r, double p, int rpe){
         super(nombre,grupo,s,r,p,rpe);
     }
@@ -36,6 +36,15 @@ public class PesoLibre extends EjercicioFuerza {
         System.out.println("Preparando levantamiento " + cinturon + " y colocando " + discosPorLado + " discos por lado.");
     }
     
+    @Override
+    public void prepararEquipo(){
+        System.out.println("Coloque los discos en la barra, asegurando barra con seguros para el ejercicio: " + nombre);
+    }
+    
+    @Override
+    public void limpiarEquipo(){
+        System.out.println("Retire los discos de la barra y los seguros en el ejercicio " + nombre + " y acomodelos en su respectivo lugar");
+    }
     @Override
     public double calcularCalorias() {
         return (series * repeticiones) + (pesoKg * 0.5);

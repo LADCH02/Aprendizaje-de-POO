@@ -8,7 +8,7 @@ package com.mycompany.gymmanager5;
  *
  * @author Lic Carmen
  */
-public class Cardio extends Ejercicio{
+public class Cardio extends Ejercicio implements Cronometrable{
     private double distancia;
     
     public Cardio(String nombre, String grupo_muscular, int series, int repeticiones, double distancia){
@@ -33,6 +33,16 @@ public class Cardio extends Ejercicio{
     
     public void ajustarRutina(String nuevaRecomendacion) {
         System.out.println("Nota extra para cardio: " + nuevaRecomendacion);
+    }
+    
+    @Override
+    public void iniciarCronometro(){
+        System.out.println("Inicia el cronometro para la sesion de: " + nombre);
+    }
+    
+    @Override
+    public void detenerCronometro(){
+        System.out.println("Deteniendo el cronometro, muchas felicidades fue una maravillosa sesion de " + nombre);
     }
     
     @Override
