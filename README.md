@@ -56,3 +56,15 @@ Paso Concreto: Llama a descansar() para cerrar el reporte con la técnica de rec
 ¿Por qué lo diseñé así?
 Lo diseñé con el modificador final para asegurar que el orden de los pasos sea inalterable. Aunque las clases hijas deciden "cómo" se ejecuta el ejercicio o "cuántas" calorías se queman, la clase padre decide "cuándo" y "en qué orden" se presenta esa información al usuario.
 
+Práctica 6 — Clases Abstractas e Interfaces
+
+Bueno primero para justtificar lo echo en esta practica se tiene que comprender que ejercicios son muy genericos entonces tenemos por eso varias clases hijas que logran heredar lo de sus clases superiores, en este caso, popr lo mismo hacemos una interfaz para cada caso en particular pues cada tipo de ejercicio tiene sus especificaciones.
+
+1. EvaluacionFisica: Se aplica a *todos* los ejercicios a través de la clase padre abstracta, ya que sin importar lo que hagas, siempre se queman calorías y existe una intensidad.
+2. Equipable: Define el comportamiento de preparar y limpiar material.
+3. Cronometrable: Define el comportamiento de medir el tiempo.
+
+Combinaciones implementadas
+1. Cardio - > Cronometrable: esta es debido a que el cardio como tal se debe de tomar el tiempo, ejemplo cuando corres.
+2. PesoLibre - > Equipable: En esta se implementa debido a que los ejercicios de estilo libre siempre tienes que poner discos y quitarlos entre mas cosas. ejemplo cuando realizas un clean
+3. Crossfit - > Implementa las dos: Implementamos las dos debido a que el croffist como tal es un entrenamiento que logra realizarse con las dos interfaces, Ejemplo en el crosffit corres y haces clean
