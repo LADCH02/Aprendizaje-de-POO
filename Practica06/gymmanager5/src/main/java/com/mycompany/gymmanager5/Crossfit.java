@@ -9,14 +9,35 @@ package com.mycompany.gymmanager5;
  * @author Lic Carmen
  */
 public class Crossfit extends Ejercicio implements Equipable, Cronometrable {
+    String intensidad;
+    private int Estaciones;
     
-    public Crossfit(String nombre, String grupo_muscular, int series, int repeticiones){
+    public Crossfit(String nombre, String grupo_muscular, int series, int repeticiones, int Estaciones){
         super(nombre,grupo_muscular,series,repeticiones);
+        this.Estaciones = Estaciones;
     }
     
+    @Override
+    public void ejecutar(){
+        System.out.println("Realizando el circuito de alta intensidad con  " + Estaciones + "estaciones ");
+    }
     
+    @Override
+    public String evaluarIntensidad() {
+        
+        if(calcularCalorias() < 1200.0)
+            intensidad = "Baja";
+        else if(calcularCalorias() >= 1200 && calcularCalorias() < 2000)
+            intensidad =  "Media";
+        else if(calcularCalorias() >= 2000)
+            intensidad = "Muy Alta";
+        return intensidad;
+    }
     
-    
+    @Override
+    public double calcularCalorias(){
+        return Estaciones * 300.0;
+    }
     
     
     @Override
