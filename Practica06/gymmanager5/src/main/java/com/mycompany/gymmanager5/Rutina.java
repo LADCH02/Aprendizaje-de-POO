@@ -34,6 +34,33 @@ public class Rutina {
         }
     }
     
+    
+    public void IniciarEntrenamiento(){
+        
+        System.out.println("----- INICIANDO ENTRENAMIENTO " + nombreRutina + " ------");
+        
+        for(Ejercicio e: listaEjercicios){
+            
+            System.out.println("Comenzamos con el siguiente ejercicio " + e.getNombre());
+            
+            if(e instanceof Equipable)
+                ((Equipable) e).prepararEquipo();
+            
+            if(e instanceof Cronometrable)
+                ((Cronometrable) e).iniciarCronometro();
+            
+            if(e instanceof Equipable)
+                ((Equipable) e).limpiarEquipo();
+            
+            if(e instanceof Cronometrable)
+                ((Cronometrable) e).detenerCronometro();
+                
+            
+            e.descansar();
+            
+        }
+    }
+    
     public void mostrar_rutina(){
         System.out.println("---- " + nombreRutina + "----");
         for(Ejercicio e: listaEjercicios)

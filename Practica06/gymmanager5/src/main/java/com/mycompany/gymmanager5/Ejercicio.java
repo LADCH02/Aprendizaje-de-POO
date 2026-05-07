@@ -55,12 +55,8 @@ public abstract class Ejercicio implements EvaluacionFisica {
         return this.nombre;
     }
     
-
     
     
-    
-    
-    // 1) progreso de peso, 2) fallo muscular o cerca del fallo muscular, 3) Cambiar rep y ser, 4) obtener resumen , 5) obtener el nombre;
     
     public final void generarReporteEntrenamiento(){
         System.out.println("====== REPORTE DE ENTRENAMIENTO ======");
