@@ -8,7 +8,7 @@ package com.mycompany.gymmanager7;
  *
  * @author Lic Carmen
  */
-public abstract class Ejercicio implements EvaluacionFisica {
+public abstract class Ejercicio implements EvaluacionFisica, Comparable<Ejercicio> {
     protected String nombre;
     protected String grupo_muscular;
     protected int series;
@@ -76,6 +76,12 @@ public abstract class Ejercicio implements EvaluacionFisica {
    
     public String resumen(){
         return ("El grupo muscular es " + grupo_muscular + "\nEjercicio: " + nombre + "\nSeries: " + series + "\nRepeticiones: " + repeticiones + "\nMuchas felicidades por su esfuerzo son unos maravillosos pesos los obtenidos vamos por mas");
+    }
+    
+    
+    @Override
+    public int compareTo(Ejercicio otro) {
+        return this.nombre.compareTo(otro.nombre);
     }
     
     @Override
