@@ -56,6 +56,11 @@ public abstract class Ejercicio implements EvaluacionFisica, Comparable<Ejercici
     }
     
     
+    public String getGrupoMuscular(){
+        return this.grupo_muscular;
+    }
+    
+    
     
     
     public final void generarReporteEntrenamiento(){
