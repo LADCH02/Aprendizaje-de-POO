@@ -22,10 +22,13 @@ public class Gymmanager6 {
                 System.out.println("¡Registro exitoso!");
                 
             } catch (PesoInvalidoException e) {
-                // Accedemos a la información de contexto adicional
-                System.err.println("[ERROR] " + e.getMessage());
-                System.err.println("Valor que causó el error: " + e.getvalorErroneo());
-                System.err.println("Hora del error: " + e.gettimes());
+                System.err.println("--- DIAGNÓSTICO TÉCNICO ---");
+                System.err.println("CÓDIGO: " + e.getCodigoInterno());
+                System.err.println("MENSAJE: " + e.getMessage());
+                System.err.println("VALOR RECHAZADO: " + e.getvalorErroneo() + "kg");
+                System.err.println("TIMESTAMP: " + e.getHoraDelError());
+                System.err.println("---------------------------");
+                
                 
             } catch (CapacidadExcedidaException e) {
                 System.err.println("[ALERTA DE SEGURIDAD] " + e.getMessage());
