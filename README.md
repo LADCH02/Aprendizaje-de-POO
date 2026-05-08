@@ -64,7 +64,27 @@ Bueno primero para justtificar lo echo en esta practica se tiene que comprender 
 2. Equipable: Define el comportamiento de preparar y limpiar material.
 3. Cronometrable: Define el comportamiento de medir el tiempo.
 
+
+
+
 Combinaciones implementadas
 1. Cardio - > Cronometrable: esta es debido a que el cardio como tal se debe de tomar el tiempo, ejemplo cuando corres.
 2. PesoLibre - > Equipable: En esta se implementa debido a que los ejercicios de estilo libre siempre tienes que poner discos y quitarlos entre mas cosas. ejemplo cuando realizas un clean
 3. Crossfit - > Implementa las dos: Implementamos las dos debido a que el croffist como tal es un entrenamiento que logra realizarse con las dos interfaces, Ejemplo en el crosffit corres y haces clean
+
+Practica 7 - Manejo de excepciones
+
+
+He implementado una excepción personalizada denominada `PesoInvalidoException` que extiende de la jerarquía base del sistema. A diferencia de una excepción estándar, esta clase incluye información de contexto adicional para facilitar el diagnóstico:
+
+1.  Valor Causante (`double`): Almacena el valor numérico exacto que provocó la excepción.
+2.  Timestamp (`LocalDateTime`): Registra el instante preciso en el que ocurrió el error.
+3.  Código de Error Interno (`String`): Un identificador único (`GYM-ERR-101`) que vincula el error con la documentación de soporte técnico del software.
+
+Utilidad en un sistema real
+En un entorno de producción (como una aplicación de gimnasio real con miles de usuarios), recibir un mensaje genérico de "Error de peso" es insuficiente. 
+
+Al incluir estos datos:
+- Diagnóstico Preciso: El equipo de soporte puede saber si el error fue un error de dedo del usuario (ej. -500 en lugar de 50) o un fallo de hardware en el sensor de una máquina.
+- Auditoría y Logs: Al guardar el `timestamp` en el archivo log, podemos cruzar información con otros eventos del sistema (como caídas de red o actualizaciones) para encontrar la causa raíz.
+- Identificación Rápida: El `codigoInterno` permite que el usuario reporte el error al soporte técnico de forma sencilla ("Tengo el error 101"), permitiendo una resolución mucho más ágil sin necesidad de revisar todo el código fuente.
