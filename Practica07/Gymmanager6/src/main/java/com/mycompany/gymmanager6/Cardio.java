@@ -4,8 +4,10 @@
  */
 package com.mycompany.gymmanager6;
 
+/*
 import com.mycompany.gymmanager6.Cronometrable;
 import com.mycompany.gymmanager6.Ejercicio;
+*/
 
 /**
  *

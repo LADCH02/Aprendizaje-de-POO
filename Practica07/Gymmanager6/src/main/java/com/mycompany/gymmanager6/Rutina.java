@@ -7,6 +7,7 @@ package com.mycompany.gymmanager6;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 /**
@@ -22,23 +23,31 @@ public class Rutina {
         this.listaEjercicios = new ArrayList<>();
     }
     
-    public void registrarEntrenamiento(double pesoCargado) throws GymException{
-        if (pesoCargado < 0){
-            throw new PesoInvalidoException("No puedes cargar pesos negativos",pesoCargado);
-        }
-        
-        if(pesoCargado > 500){
-            throw new CapacidadExcedidaException("El peso excede el limite de seguridad del gym");
-        }
+    public void registrarEntrenamiento(double pesoCargado) throws GymException {
+   
+    try (PrintWriter escritor = new PrintWriter(new FileWriter("registro_errores.log", true))) {
         
         
-        try(PrintWriter log = new PrintWriter(new FileWriter("resgistro-errores.log",true))){
-            System.out.println("Registrando sesión con: " + pesoCargado + "kg");
-        }catch(IOException e){
-            System.err.println("Error fatal al escribir el archivo de log: " + e.getMessage());
+        if (pesoCargado < 0) {
+            String msg = "ERROR: Peso negativo detectado: " + pesoCargado;
+            escritor.println(LocalDateTime.now() + " - " + msg); 
+            throw new PesoInvalidoException("No puedes cargar peso negativo", pesoCargado);
         }
-            
+        
+        if (pesoCargado > 500) {
+            String msg = "ALERTA: Peso excesivo: " + pesoCargado + "kg";
+            escritor.println(LocalDateTime.now() + " - " + msg); 
+            throw new CapacidadExcedidaException("El peso excede el límite de seguridad.");
+        }
+
+        
+        System.out.println("Registrando sesión con: " + pesoCargado + "kg");
+        escritor.println(LocalDateTime.now() + " - ÉXITO: Registro de " + pesoCargado + "kg en rutina " + nombreRutina);
+
+    } catch (IOException e) {
+        System.err.println("Error de entrada/salida: " + e.getMessage());
     }
+}
     
     
     public void  agregarEjercicio(Ejercicio e){

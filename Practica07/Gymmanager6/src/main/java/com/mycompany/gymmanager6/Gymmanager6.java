@@ -8,7 +8,7 @@ package com.mycompany.gymmanager6;
  *
  * @author Lic Carmen
  */
-public class Gymmanager5 {
+public class Gymmanager6 {
 
     public static void main(String[] args) {
         Rutina miRutina = new Rutina("Entrenamiento de Potencia");
