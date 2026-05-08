@@ -4,6 +4,9 @@
  */
 package com.mycompany.gymmanager6;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 /**
@@ -18,6 +21,25 @@ public class Rutina {
         this.nombreRutina = nombreRutina;
         this.listaEjercicios = new ArrayList<>();
     }
+    
+    public void registrarEntrenamiento(double pesoCargado) throws GymException{
+        if (pesoCargado < 0){
+            throw new PesoInvalidoException("No puedes cargar pesos negativos",pesoCargado);
+        }
+        
+        if(pesoCargado > 500){
+            throw new CapacidadExcedidaException("El peso excede el limite de seguridad del gym");
+        }
+        
+        
+        try(PrintWriter log = new PrintWriter(new FileWriter("resgistro-errores.log",true))){
+            System.out.println("Registrando sesión con: " + pesoCargado + "kg");
+        }catch(IOException e){
+            System.err.println("Error fatal al escribir el archivo de log: " + e.getMessage());
+        }
+            
+    }
+    
     
     public void  agregarEjercicio(Ejercicio e){
         listaEjercicios.add(e);
