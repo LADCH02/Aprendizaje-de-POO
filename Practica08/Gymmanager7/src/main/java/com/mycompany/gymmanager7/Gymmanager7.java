@@ -36,7 +36,7 @@ public class Gymmanager7 {
             
             int opcion = sn.nextInt();
             sn.nextLine(); 
-
+           
             switch(opcion) {
                 case 1:
                     System.out.println("\n--- INVENTARIO ---");
