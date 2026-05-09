@@ -88,3 +88,17 @@ Al incluir estos datos:
 - Diagnóstico Preciso: El equipo de soporte puede saber si el error fue un error de dedo del usuario (ej. -500 en lugar de 50) o un fallo de hardware en el sensor de una máquina.
 - Auditoría y Logs: Al guardar el timestamp en el archivo log, podemos cruzar información con otros eventos del sistema (como caídas de red o actualizaciones) para encontrar la causa raíz.
 - Identificación Rápida: El codigoInterno permite que el usuario reporte el error al soporte técnico de forma sencilla ("Tengo el error 101"), permitiendo una resolución mucho más ágil sin necesidad de revisar todo el código fuente.
+- 
+Práctica 8 Colecciones en Java
+
+Consulta de Búsqueda Compuesta Implementada
+En la clase GymGestor, se implementó el método filtrarAvanzado(String grupo, double minCalorias). Esta operación realiza un filtrado compuesto utilizando la API de **Java Streams** con dos criterios simultáneos:
+1.  Criterio A (Igualdad): El ejercicio debe pertenecer a un grupo muscular específico (ej. "Pierna").
+2.  Criterio B (Comparación): El ejercicio debe quemar una cantidad de calorías igual o mayor al umbral definido por el usuario.
+
+
+Ejemplo 
+return inventario.stream()
+    .filter(e -> e.getGrupo_muscular().equalsIgnoreCase(grupo)) // Filtro 1
+    .filter(e -> e.calcularCalorias() >= minCalorias)            // Filtro 2
+    .collect(Collectors.toList());
