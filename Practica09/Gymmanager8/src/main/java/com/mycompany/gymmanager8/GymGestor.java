@@ -25,6 +25,9 @@ public class GymGestor {
         mapaBusqueda.put(e.getNombre().toLowerCase(), e);
     }
 
+    public List<Ejercicio> getInventario() {
+        return this.inventario;
+    }
     
     public List<Ejercicio> filtrarAvanzado(String grupo, double minCalorias) {
         return inventario.stream()
