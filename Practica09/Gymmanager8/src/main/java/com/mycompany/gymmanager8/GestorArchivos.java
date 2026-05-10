@@ -4,10 +4,13 @@
  */
 package com.mycompany.gymmanager8;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+
+
+import java.io.*;
+import java.nio.file.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -35,5 +38,23 @@ public class GestorArchivos {
             System.err.println("Error al guardar: " + e.getMessage());
         }
     }
+    
+    
+    @SuppressWarnings("unchecked")
+    public List<Ejercicio> cargarBinario() {
+        File archivo = new File(ARCHIVO_BINARIO);
+        if (!archivo.exists()) return new ArrayList<>();
+
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(archivo))) {
+            System.out.println("Datos previos cargados correctamente.");
+            return (List<Ejercicio>) ois.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            System.err.println("Error al cargar datos: " + e.getMessage());
+            return new ArrayList<>();
+        }
+    }
+    
+    
+    
     
 }
