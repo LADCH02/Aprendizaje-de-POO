@@ -5,6 +5,10 @@
 package com.mycompany.gymmanager8;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.List;
 
 /**
  *
@@ -21,4 +25,15 @@ public class GestorArchivos {
             directorio.mkdirs();
         }
     }
+    
+    
+    public void guardarBinario(List<Ejercicio> inventario) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(ARCHIVO_BINARIO))) {
+            oos.writeObject(inventario);
+            System.out.println("Datos guardados correctamente en binario.");
+        } catch (IOException e) {
+            System.err.println("Error al guardar: " + e.getMessage());
+        }
+    }
+    
 }
