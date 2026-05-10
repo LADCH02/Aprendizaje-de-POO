@@ -4,11 +4,13 @@
  */
 package com.mycompany.gymmanager8;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Lic Carmen
  */
-public abstract class Ejercicio implements EvaluacionFisica, Comparable<Ejercicio> {
+public abstract class Ejercicio implements EvaluacionFisica, Comparable<Ejercicio>, Serializable {
     protected String nombre;
     protected String grupo_muscular;
     protected int series;
