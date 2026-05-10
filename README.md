@@ -99,6 +99,18 @@ En la clase GymGestor, se implementó el método filtrarAvanzado(String grupo, d
 
 Ejemplo 
 return inventario.stream()
-    .filter(e -> e.getGrupo_muscular().equalsIgnoreCase(grupo)) // Filtro 1
-    .filter(e -> e.calcularCalorias() >= minCalorias)            // Filtro 2
+    .filter(e -> e.getGrupo_muscular().equalsIgnoreCase(grupo))
+    .filter(e -> e.calcularCalorias() >= minCalorias)           
     .collect(Collectors.toList());
+
+
+Práctica 9 — Entrada/Salida (I/O) en Java
+
+### Formato Alternativo de Exportación: JSON Plano
+Además de la lectura de archivos CSV, se implemnto una función que exporta el inventario de ejercicios a un formato JSON (JavaScript Object Notation), construido dinámicamente mediante la clase StringBuilder.
+
+### Justificación frente al CSV
+Si bien el CSV es excelente para importar datos tabulares masivos (como hojas de cálculo de Excel), el JSON es el estándar de oro para la interoperabilidad web. 
+En un caso de uso real para este dominio, si el "GymManager" necesitara enviar la lista de rutinas a una aplicación móvil (App de celular para los clientes del gimnasio) o a una API de un sitio web, el CSV resultaría difícil de procesar para estructuras anidadas. Exportar a JSON permite que otras plataformas consuman nuestros datos de Java de manera estructurada, limpia y lista para integrarse con tecnologías de Frontend.
+
+
