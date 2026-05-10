@@ -70,4 +70,24 @@ public class GestorArchivos {
     }
     
     
+    public void importarDesdeCSV(String rutaCSV, GymGestor gestor) {
+        try (BufferedReader br = new BufferedReader(new FileReader(rutaCSV))) {
+            String linea;
+            br.readLine(); 
+            
+            while ((linea = br.readLine()) != null) {
+                String[] datos = linea.split(",");
+                
+                if (datos[0].equalsIgnoreCase("Cardio")) {
+                    gestor.agregarEjercicio(new Cardio(datos[1], datos[2], Integer.parseInt(datos[3]), Integer.parseInt(datos[4]), Double.parseDouble(datos[5])));
+                }
+               
+            }
+            System.out.println("Datos importados desde CSV.");
+        } catch (Exception e) {
+            System.err.println("Error leyendo CSV: " + e.getMessage());
+        }
+    }
+    
+    
 }
