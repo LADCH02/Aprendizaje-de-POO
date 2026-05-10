@@ -87,7 +87,29 @@ public class GestorArchivos {
         } catch (Exception e) {
             System.err.println("Error leyendo CSV: " + e.getMessage());
         }
-    }
-    
-    
+    }   
+        
+    public void exportarAJSON(List<Ejercicio> inventario) {
+        String rutaJSON = DIRECTORIO_DATOS + "/reporte_ejercicios.json";
+        try (PrintWriter pw = new PrintWriter(new FileWriter(rutaJSON))) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("[\n");
+            for (int i = 0; i < inventario.size(); i++) {
+                Ejercicio e = inventario.get(i);
+                sb.append("  {\n");
+                sb.append("    \"nombre\": \"").append(e.getNombre()).append("\",\n");
+                sb.append("    \"grupoMuscular\": \"").append(e.getGrupoMuscular()).append("\",\n");
+                sb.append("    \"caloriasQuemadas\": ").append(e.calcularCalorias()).append("\n");
+                sb.append("  }");
+                if (i < inventario.size() - 1) sb.append(",");
+                sb.append("\n");
+            }
+            sb.append("]\n");
+            pw.write(sb.toString());
+            System.out.println("Exportación a JSON completada en: " + rutaJSON);
+        } catch (IOException e) {
+            System.err.println("Error al exportar: " + e.getMessage());
+        }
+    } 
 }
+
