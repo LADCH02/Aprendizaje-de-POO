@@ -54,7 +54,20 @@ public class GestorArchivos {
         }
     }
     
-    
+    public void crearBackup() {
+        try {
+            String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
+            Path origen = Paths.get(ARCHIVO_BINARIO);
+            Path destino = Paths.get(DIRECTORIO_DATOS + "/backup_" + timestamp + ".dat");
+
+            if (Files.exists(origen)) {
+                Files.copy(origen, destino, StandardCopyOption.REPLACE_EXISTING);
+                System.out.println("Backup de seguridad creado: backup_" + timestamp + ".dat");
+            }
+        } catch (IOException e) {
+            System.err.println("Error al crear backup: " + e.getMessage());
+        }
+    }
     
     
 }
