@@ -29,4 +29,20 @@ public class ZonaEspera {
         
         notifyAll();
     }
+    
+    public synchronized String atenderCliente(String entrenadorNombre) throws InterruptedException {
+        
+        while (filaClientes.isEmpty()) {
+            System.out.println(" [SALA VACÍA] " + entrenadorNombre + " está esperando clientes...");
+            wait(); 
+        }
+        
+        String clienteAtendido = filaClientes.poll();
+        System.out.println("[" + entrenadorNombre + "] está atendiendo a " + clienteAtendido + ". Fila restante: " + filaClientes.size());
+        
+        
+        notifyAll();
+        return clienteAtendido;
+    }
+    
 }
