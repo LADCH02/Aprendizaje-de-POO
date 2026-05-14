@@ -114,3 +114,12 @@ Si bien el CSV es excelente para importar datos tabulares masivos (como hojas de
 En un caso de uso real para este dominio, si el "GymManager" necesitara enviar la lista de rutinas a una aplicación móvil (App de celular para los clientes del gimnasio) o a una API de un sitio web, el CSV resultaría difícil de procesar para estructuras anidadas. Exportar a JSON permite que otras plataformas consuman nuestros datos de Java de manera estructurada, limpia y lista para integrarse con tecnologías de Frontend.
 
 
+Práctica 10 — Programación Concurrente
+Elegí el escenario de una Zona de Espera en la Recepción de un Gimnasio. 
+- Productores: Recepcionistas que registran clientes y los pasan a la sala de espera.
+- Consumidores: Entrenadores que toman a un cliente de la sala y lo guían en su rutina.
+- Recurso compartido: La Sala de Espera (Buffer limitado a 5 personas).
+
+Justificación: Es un excelente ejemplo de concurrencia porque en la vida real un gimnasio tiene llegadas aleatorias (clientes) y tiempos de servicio variables (rutinas). La sincronización aquí resuelve el problema deDesbordamiento: evita que la recepción deje pasar a más de 5 personas si la sala está llena, y evita que un entrenador intente atender al aire (cuando no hay clientes).
+
+
