@@ -4,10 +4,29 @@
  */
 package com.mycompany.gymmanager9;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  *
  * @author Lic Carmen
  */
 public class ZonaEspera {
     
+    private Queue<String> filaClientes = new LinkedList<>();
+    private final int CAPACIDAD_MAXIMA = 5;
+    
+    public synchronized void agregarCliente(String cliente, String productorNombre) throws InterruptedException {
+        
+        while (filaClientes.size() == CAPACIDAD_MAXIMA) {
+            System.out.println("[SALA LLENA] " + productorNombre + " esperando para dejar entrar a " + cliente);
+            wait(); 
+        }
+        
+        filaClientes.offer(cliente);
+        System.out.println("[" + productorNombre + "] agregó a " + cliente + ". Fila actual: " + filaClientes.size());
+        
+        
+        notifyAll();
+    }
 }
