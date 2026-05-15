@@ -122,4 +122,14 @@ Elegí el escenario de una Zona de Espera en la Recepción de un Gimnasio.
 
 Justificación: Es un excelente ejemplo de concurrencia porque en la vida real un gimnasio tiene llegadas aleatorias (clientes) y tiempos de servicio variables (rutinas). La sincronización aquí resuelve el problema deDesbordamiento: evita que la recepción deje pasar a más de 5 personas si la sala está llena, y evita que un entrenador intente atender al aire (cuando no hay clientes).
 
+Practica 11 -  JavaFX para Interfaces Gráficas
+Elemento de Decisión Propia: Filtrado Interactivo
+Para esta práctica, implementé una funcionalidad de búsqueda y filtrado en tiempo real sobre el inventario del gimnasio.
+
+Criterio de filtrado: El usuario puede filtrar la tabla buscando tanto por el Nombre del Ejercicio (ej. Sentadilla) como por el Grupo Muscular (ej. "Pierna").
+
+Implementación en JavaFX: Utilicé la clase FilteredList (proveniente de javafx.collections.transformation). Esta clase envuelve la lista observable original (ObservableList).
+
+Enlace de datos: Para conectar el campo de búsqueda con la tabla, se coloco un Listener a la propiedad de texto del campo (txtBusqueda.textProperty().addListener(...)). Cada vez que el usuario presiona o borra una tecla, el listener actualiza el Predicate (la condición matemática de filtro) de la FilteredList. La tabla, al estar enlazada a esta lista filtrada, se actualiza automáticamente frame a frame sin necesidad de presionar un botón de Buscar.
+
 
