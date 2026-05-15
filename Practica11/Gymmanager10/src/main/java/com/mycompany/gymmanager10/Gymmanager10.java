@@ -11,6 +11,6 @@ package com.mycompany.gymmanager10;
 public class Gymmanager10 {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        GymAppGUI.main(args);
     }
 }
