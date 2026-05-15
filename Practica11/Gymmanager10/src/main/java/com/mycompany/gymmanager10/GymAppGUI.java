@@ -113,7 +113,38 @@ public class GymAppGUI extends Application {
         primaryStage.show();  
     }
 
+    private void abrirModalAgregar(Stage owner) {
+        Stage modal = new Stage();
+        modal.initModality(Modality.APPLICATION_MODAL); 
+        modal.initOwner(owner);
+        modal.setTitle("Nuevo Ejercicio");
+
+        Label lblNombre = new Label("Nombre del Ejercicio:");
+        TextField txtNombre = new TextField();
+
+        Label lblCalorias = new Label("Calorías a quemar:");
+        GymNumberField txtCalorias = new GymNumberField(); 
+
+        GymButton btnGuardar = new GymButton("Guardar");
+        btnGuardar.setOnAction(e -> {
+            System.out.println("Simulando guardado de: " + txtNombre.getText());
+            
+            modal.close();
+        });
+
+        VBox layoutModal = new VBox(10);
+        layoutModal.setStyle("-fx-padding: 20px;");
+        layoutModal.getChildren().addAll(lblNombre, txtNombre, lblCalorias, txtCalorias, btnGuardar);
+
+        Scene sceneModal = new Scene(layoutModal, 300, 250);
+        modal.setScene(sceneModal);
+        modal.showAndWait();
+    }
+
     
+    public static void main(String[] args) {
+        launch(args); 
+    }
     
     
    
