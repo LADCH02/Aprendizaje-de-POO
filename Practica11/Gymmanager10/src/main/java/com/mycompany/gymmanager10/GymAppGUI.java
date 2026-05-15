@@ -103,7 +103,7 @@ public class GymAppGUI extends Application {
 
 
         try {
-            scene.getStylesheets().add(getClass().getResource("estilos.css").toExternalForm());
+            scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
         } catch (Exception ex) {
             System.out.println("No se encontró estilos.css, se usará el estilo por defecto.");
         }
