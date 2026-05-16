@@ -4,6 +4,8 @@
 
 package com.mycompany.gympos;
 
+import com.mycompany.gympos.main.GymPOSApp;
+
 /**
  *
  * @author Lic Carmen
@@ -11,6 +13,6 @@ package com.mycompany.gympos;
 public class GymPOS {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+       GymPOSApp.main(args); 
     }
 }
