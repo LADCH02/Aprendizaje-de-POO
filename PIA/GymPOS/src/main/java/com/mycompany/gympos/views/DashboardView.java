@@ -167,6 +167,7 @@ public class DashboardView {
     
     private void actualizarTabla() {
         tablaClientes.setItems(FXCollections.observableArrayList(clientesController.getListaClientes()));
+        tablaClientes.refresh();
     }
 
     public BorderPane getView() {
