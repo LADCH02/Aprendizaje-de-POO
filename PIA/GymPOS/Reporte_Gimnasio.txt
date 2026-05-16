@@ -1,3 +1,21 @@
 === REPORTE DE CLIENTES GYMPOS ===
 ID: 1 | Nombre: Luis Antonio Diaz chavez | Puntos: 10 | Estado: Sin Membresía
 ID: 2 | Nombre: Juan gerardo | Puntos: 10 | Estado: Sin Membresía
+ID: 0003 | Nombre: Yami | Puntos: 20 | Estado: Sin Membresía
+ID: 3 | Nombre: Yamilet Anahi Paez Torres | Puntos: 0 | Estado: Sin Membresía
+ID: 5 | Nombre: bruno ezequile paez torres | Puntos: 0 | Estado: Sin Membresía
+ID: 6 | Nombre: peres cantu | Puntos: 0 | Estado: Sin Membresía
+ID: 7 | Nombre: carmen chavez  | Puntos: 0 | Estado: Sin Membresía
+ID: 8 | Nombre: tavo  perlaez | Puntos: 0 | Estado: Sin Membresía
+ID: 9 | Nombre: diego balboa | Puntos: 0 | Estado: Sin Membresía
+ID: 10 | Nombre: camila mapica | Puntos: 0 | Estado: Sin Membresía
+ID: 11 | Nombre: carlos guillen | Puntos: 0 | Estado: Sin Membresía
+ID: 12 | Nombre: chuy carmiona | Puntos: 0 | Estado: Sin Membresía
+ID: 13 | Nombre: gerardo jose | Puntos: 0 | Estado: Sin Membresía
+ID: 14 | Nombre: fabiloa garza | Puntos: 0 | Estado: Sin Membresía
+ID: 15 | Nombre: rodriguez | Puntos: 0 | Estado: Sin Membresía
+ID: 16 | Nombre: sarai torres | Puntos: 0 | Estado: Sin Membresía
+ID: 17 | Nombre: piolinpiolin | Puntos: 0 | Estado: Sin Membresía
+ID: 18 | Nombre: dragon ball | Puntos: 0 | Estado: Sin Membresía
+ID: 19 | Nombre: naruto usumaki | Puntos: 10 | Estado: Sin Membresía
+ID: 20 | Nombre: sasuke uchicha | Puntos: 0 | Estado: Sin Membresía
