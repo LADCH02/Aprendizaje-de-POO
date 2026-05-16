@@ -88,7 +88,11 @@ public class DashboardView {
         btnReporte.setStyle("-fx-background-color: #2ecc71; -fx-text-fill: white;");
         btnReporte.setOnAction(e -> new GeneradorReportes(clientesController.getListaClientes()).start());
 
-        panelBotones.getChildren().addAll(btnAgregar, btnEliminar, btnReporte, btnPagar);
+        Button btnEditar = new Button("Editar");
+        btnEditar.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;");
+        btnEditar.setOnAction(e -> abrirFormularioEditarCliente());
+        
+        panelBotones.getChildren().addAll(btnAgregar, btnEliminar, btnReporte, btnPagar, btnEditar);
         panelPrincipal.setBottom(panelBotones);
     }
 
@@ -163,7 +167,56 @@ public class DashboardView {
     }
     
     
-    
+    private void abrirFormularioEditarCliente() {
+        Cliente seleccionado = tablaClientes.getSelectionModel().getSelectedItem();
+        
+        if (seleccionado == null) {
+            Alert alertaAviso = new Alert(Alert.AlertType.WARNING);
+            alertaAviso.setContentText("Por favor, selecciona a un cliente de la tabla primero.");
+            alertaAviso.show();
+            return;
+        }
+
+        Stage modal = new Stage();
+        modal.setTitle("Editar Cliente");
+        modal.initModality(Modality.APPLICATION_MODAL);
+
+        VBox layout = new VBox(10);
+        layout.setStyle("-fx-padding: 20px;");
+
+        
+        TextField txtId = new TextField(seleccionado.getIdCliente());
+        txtId.setDisable(true); 
+
+        
+        TextField txtNombre = new TextField(seleccionado.getNombre());
+        TextField txtTelefono = new TextField(seleccionado.getTelefono());
+
+        Button btnActualizar = new Button("Actualizar Datos");
+        btnActualizar.setOnAction(e -> {
+            if (!txtNombre.getText().isEmpty()) {
+                
+                seleccionado.setNombre(txtNombre.getText());
+                seleccionado.setTelefono(txtTelefono.getText());
+                
+                
+                clientesController.guardarDatos(); 
+                
+                
+                actualizarTabla(); 
+                modal.close();
+            }
+        });
+
+        layout.getChildren().addAll(
+            new Label("ID del Cliente (No editable):"), txtId, 
+            new Label("Nombre:"), txtNombre, 
+            new Label("Teléfono:"), txtTelefono, 
+            btnActualizar
+        );
+        modal.setScene(new Scene(layout, 300, 280));
+        modal.showAndWait();
+    }
     
     private void actualizarTabla() {
         tablaClientes.setItems(FXCollections.observableArrayList(clientesController.getListaClientes()));
