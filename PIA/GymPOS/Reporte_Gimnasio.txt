@@ -1,0 +1,3 @@
+=== REPORTE DE CLIENTES GYMPOS ===
+ID: C-263 | Nombre: Cliente Nuevo | Puntos: 0 | Estado: Sin Membresía
+ID: C-221 | Nombre: Cliente Nuevo | Puntos: 0 | Estado: Sin Membresía
