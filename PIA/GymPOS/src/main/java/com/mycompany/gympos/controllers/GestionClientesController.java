@@ -44,6 +44,18 @@ public class GestionClientesController {
     }
 
    
+    public boolean eliminarCliente(String idCliente) {
+        Cliente clienteAEliminar = buscarCliente(idCliente);
+        if (clienteAEliminar != null) {
+            listaClientes.remove(clienteAEliminar);
+            guardarCambios(); 
+            System.out.println("Cliente eliminiado: " + clienteAEliminar.getNombre());
+            return true;
+        }
+        return false;
+    }
+    
+    
     private void guardarCambios() {
         try {
             PersistenciaDatos.guardarClientes(listaClientes, RUTA_ARCHIVO);
