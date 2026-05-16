@@ -63,4 +63,9 @@ public class GestionClientesController {
             System.err.println("Error al guardar: " + e.getMessage());
         }
     }
+    
+    public void guardarDatos() {
+        guardarCambios(); 
+    }
+    
 }
