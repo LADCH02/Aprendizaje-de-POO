@@ -8,6 +8,8 @@ package com.mycompany.gympos.exceptions;
  *
  * @author Lic Carmen
  */
-public class MembresiaVencidaException {
-    
+public class MembresiaVencidaException extends Exception {
+    public MembresiaVencidaException(String mensaje) {
+        super(mensaje);
+    }
 }
