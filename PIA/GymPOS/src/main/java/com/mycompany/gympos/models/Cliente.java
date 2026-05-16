@@ -30,6 +30,9 @@ public class Cliente implements Serializable{
     
     public String getIdCliente() { return idCliente; }
     public String getNombre() { return nombre; }
+    public String getTelefono() { return telefono; }
+    public void setNombre(String nombre) { this.nombre = nombre; }
+    public void setTelefono(String telefono) { this.telefono = telefono; }
     public Membresia getMembresia() { return membresia; }
     public void setMembresia(Membresia membresia) { this.membresia = membresia; }
     public int getPuntosRecompensa() { return puntosRecompensa; }
