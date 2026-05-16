@@ -12,10 +12,15 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 
+
+
 /**
  *
  * @author Lic Carmen
  */
+
+
+
 public class DashboardView {
     private BorderPane panelPrincipal;
     private GestionClientesController clientesController;
