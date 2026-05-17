@@ -59,7 +59,15 @@ public class DashboardView {
         TableColumn<Cliente, Integer> colPuntos = new TableColumn<>("Puntos Recompensa");
         colPuntos.setCellValueFactory(new PropertyValueFactory<>("puntosRecompensa"));
         
-        tablaClientes.getColumns().addAll(colId, colNombre, colPuntos);
+        
+        TableColumn<Cliente, String> colEstado = new TableColumn<>("Estado Membresía");
+        colEstado.setCellValueFactory(celda -> {
+            com.mycompany.gympos.models.Membresia mem = celda.getValue().getMembresia();
+            String texto = (mem != null && mem.isActiva()) ? "Activa" : "Sin Asignar / Vencida";
+            return new javafx.beans.property.SimpleStringProperty(texto);
+        });
+        
+        tablaClientes.getColumns().setAll(colId, colNombre, colPuntos, colEstado);
         actualizarTabla(); 
         panelPrincipal.setCenter(tablaClientes);
 
