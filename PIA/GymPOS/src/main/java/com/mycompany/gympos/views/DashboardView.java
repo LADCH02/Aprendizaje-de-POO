@@ -108,7 +108,13 @@ public class DashboardView {
         Button btnSalida = new Button("Salida");
         btnSalida.setOnAction(e -> registrarAcceso(false));
         
-        panelBotones.getChildren().addAll(btnAgregar, btnEliminar, btnReporte, btnPagar, btnEditar, btnEntrada, btnSalida);
+        
+        Button btnMembresia = new Button("Asignar mebresia");
+        btnMembresia.setStyle("-fx-background-color: #8e44ad; -fx-text-fill: white;");
+        btnMembresia.setOnAction(e -> abrirFormularioMembresia());
+        
+        
+        panelBotones.getChildren().addAll(btnAgregar, btnEliminar, btnReporte, btnPagar, btnMembresia, btnEditar, btnEntrada, btnSalida);
         panelPrincipal.setBottom(panelBotones);
     }
 
@@ -266,7 +272,56 @@ public class DashboardView {
         }
     }
     
-    
+    private void abrirFormularioMembresia() {
+        Cliente seleccionado = tablaClientes.getSelectionModel().getSelectedItem();
+        
+        if (seleccionado == null) {
+            Alert alertaAviso = new Alert(Alert.AlertType.WARNING);
+            alertaAviso.setContentText("Por favor, selecciona a un cliente primero.");
+            alertaAviso.show();
+            return;
+        }
+
+        Stage modal = new Stage();
+        modal.setTitle("Asignar Membresía");
+        modal.initModality(Modality.APPLICATION_MODAL);
+
+        VBox layout = new VBox(15);
+        layout.setStyle("-fx-padding: 20px; -fx-alignment: center;");
+
+        Label lblInfo = new Label("Seleccione el plan para:\n" + seleccionado.getNombre());
+        lblInfo.setStyle("-fx-font-weight: bold; -fx-text-alignment: center;");
+        
+        
+        ComboBox<String> comboPlanes = new ComboBox<>();
+        comboPlanes.getItems().addAll("Básica ($350)", "Premium ($600)");
+        comboPlanes.setValue("Básica ($350)"); 
+
+        Button btnAsignar = new Button("Guardar Membresía");
+        btnAsignar.setStyle("-fx-background-color: #2ecc71; -fx-text-fill: white;");
+        btnAsignar.setOnAction(e -> {
+            
+            if (comboPlanes.getValue().contains("Básica")) {
+                seleccionado.setMembresia(new com.mycompany.gympos.models.MembresiaBasica());
+            } else {
+                seleccionado.setMembresia(new com.mycompany.gympos.models.MembresiaPremium());
+            }
+            
+            
+            clientesController.guardarDatos();
+            actualizarTabla();
+            modal.close();
+            
+            Alert exito = new Alert(Alert.AlertType.INFORMATION);
+            exito.setHeaderText("¡Membresía Asignada!");
+            exito.setContentText("El cliente ya tiene su plan y puede registrar su entrada.");
+            exito.show();
+        });
+
+        layout.getChildren().addAll(lblInfo, comboPlanes, btnAsignar);
+        modal.setScene(new Scene(layout, 300, 200));
+        modal.showAndWait();
+    }
     
     private void actualizarTabla() {
         tablaClientes.setItems(FXCollections.observableArrayList(clientesController.getListaClientes()));
