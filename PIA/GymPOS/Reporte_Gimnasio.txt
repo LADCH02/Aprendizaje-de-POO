@@ -14,7 +14,7 @@ ID: 13 | Nombre: jusndjbsu | Puntos: 0 | Estado: Sin Membresía
 ID: 14 | Nombre: Gerardo jose | Puntos: 10 | Estado: Sin Membresía
 ID: 15 | Nombre: skjdifnjsd | Puntos: 0 | Estado: Sin Membresía
 ID: 16 | Nombre: sndnkfjhfiubv | Puntos: 20 | Estado: Sin Membresía
-ID: 17 | Nombre: afsfsdgfsg | Puntos: 0 | Estado: Sin Membresía
 ID: 18 | Nombre: jsdibwkhbfi | Puntos: 0 | Estado: Sin Membresía
-ID: 20 | Nombre: lusindfksds | Puntos: 0 | Estado: Sin Membresía
+ID: 20 | Nombre: Jorge | Puntos: 0 | Estado: Activa
 ID: 21 | Nombre: yamilet anahi | Puntos: 10 | Estado: Sin Membresía
+ID: 22 | Nombre: Bruno esequiel | Puntos: 10 | Estado: Activa
