@@ -4,6 +4,7 @@
  */
 package com.mycompany.gympos.views;
 
+import com.mycompany.gympos.controllers.ControlAccesoController;
 import com.mycompany.gympos.controllers.GestionClientesController;
 import com.mycompany.gympos.controllers.ProcesadorPagosController;
 import com.mycompany.gympos.exceptions.PagoInvalidoException;
@@ -92,7 +93,14 @@ public class DashboardView {
         btnEditar.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;");
         btnEditar.setOnAction(e -> abrirFormularioEditarCliente());
         
-        panelBotones.getChildren().addAll(btnAgregar, btnEliminar, btnReporte, btnPagar, btnEditar);
+        
+        Button btnEntrada = new Button("Entrada");
+        btnEntrada.setOnAction(e -> registrarAcceso(true));
+
+        Button btnSalida = new Button("Salida");
+        btnSalida.setOnAction(e -> registrarAcceso(false));
+        
+        panelBotones.getChildren().addAll(btnAgregar, btnEliminar, btnReporte, btnPagar, btnEditar, btnEntrada, btnSalida);
         panelPrincipal.setBottom(panelBotones);
     }
 
@@ -217,6 +225,40 @@ public class DashboardView {
         modal.setScene(new Scene(layout, 300, 280));
         modal.showAndWait();
     }
+    
+    private void registrarAcceso(boolean esEntrada) {
+        Cliente seleccionado = tablaClientes.getSelectionModel().getSelectedItem();
+        
+        if (seleccionado != null) {
+            ControlAccesoController accesoController = new ControlAccesoController();
+            try {
+                if (esEntrada) {
+                    accesoController.registrarEntrada(seleccionado);
+                    Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+                    alerta.setHeaderText("Acceso Concedido");
+                    alerta.setContentText("Entrada registrada para: " + seleccionado.getNombre());
+                    alerta.show();
+                } else {
+                    accesoController.registrarSalida(seleccionado);
+                    Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+                    alerta.setHeaderText("Salida Registrada");
+                    alerta.setContentText("Salida registrada para: " + seleccionado.getNombre());
+                    alerta.show();
+                }
+            } catch (Exception ex) {
+                Alert alertaError = new Alert(Alert.AlertType.ERROR);
+                alertaError.setHeaderText("Error de Acceso");
+                alertaError.setContentText(ex.getMessage());
+                alertaError.show();
+            }
+        } else {
+            Alert alertaAviso = new Alert(Alert.AlertType.WARNING);
+            alertaAviso.setContentText("Selecciona un cliente de la tabla primero.");
+            alertaAviso.show();
+        }
+    }
+    
+    
     
     private void actualizarTabla() {
         tablaClientes.setItems(FXCollections.observableArrayList(clientesController.getListaClientes()));
